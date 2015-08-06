@@ -1,42 +1,118 @@
 doctype html
 html(lang="en")
 	head
+		title Palette | FlatUI, Material, iOS, Windows Phone, Solarized and Tango color schemes
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0")
+		meta(name="description", content="")
 		link(href='styles.css', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300', rel='stylesheet', type='text/css')
-		link(href='http://fonts.googleapis.com/css?family=Oxygen:100,300', rel='stylesheet', type='text/css')
 		noscript
 			style
 				| .format { display: none; }
-				| .palette .color .rgb { display: flex; align-self: flex-end}
+				| .palettes .palette .color .rgb { visibility: visible; opacity: 1;}
 				| body { overflow-y: auto; }
-				
-	body
-		header
-			h1 Palette
-			nav
-				ul
-					each palette in palettes
-						li
-							a(href='##{palette.name}') #{palette.name}
-			nav.format
-				ul
-					li
-						a(href='#') #hex
-					li
-						a(href='#') hex
-					li
-						a(href='#') rgb
+		script.
 
-		each palette in palettes
-			section.palette(id='#{palette.name}')
-				each color, name in palette.colors
-					- var w = 100/palette.width;
-					- var bg = '#' + color;
-					- var r = parseInt(color.substr(0,2), 16);
-					- var g = parseInt(color.substr(2,2),16);
-					- var b = parseInt(color.substr(4,2),16);
-					- var yiq = ((r*299)+(g*587)+(b*114))/1000;
-					- var fgclass = yiq >= 180 ? 'black-text' : 'white-text';
-					.color(class='#{fgclass}', style='background: #{bg}; width: #{w}%')
-						.name #{name}
-						.rgb #{bg}
+			var formats = {
+				'hashhex': function(c) { return '#' + c; },
+				'oxhex': function(c) { return '0x' + c; },
+				'rgba': function(c) {
+					var r = parseInt(c.substr(0,2), 16);
+					var g = parseInt(c.substr(2,2),16);
+					var b = parseInt(c.substr(4,2),16);
+					return 'rgb(' + r + ',' + g + ',' + b + ')';
+				}
+			};
+			
+			window.onload = function() {
+				// Detect if touch screen is supported
+				// Color value is toggled on hover when mouse is present, and is always
+				// shown when touch screen is present
+				document.documentElement.className += 
+					(("ontouchstart" in document.documentElement) ?
+						' touch' : ' notouch');
+				// Bind click events for format toggle buttons
+				[].forEach.call(document.querySelectorAll('.format a'), function(el) {
+					el.addEventListener('click', function(e) {
+						e.preventDefault();
+						[].forEach.call(document.querySelectorAll('.format a'), function(a) {
+							a.className = '';
+						});
+						el.className = 'active';
+						[].forEach.call(document.querySelectorAll('.color'), function(tile) {
+							var rgb = tile.querySelector('.rgb');
+							var f = formats[el.dataset.format];
+							rgb.textContent = f(tile.dataset.color);
+						});
+					});
+				});
+				// Bind click events to each color tile
+				var tiles = document.querySelectorAll('.color');
+				for (var i = 0; i < tiles.length; i++) {
+					(function(tile) {
+						tile.addEventListener('click', function() {
+							var el = this.querySelector('.rgb');
+							// Try to select color value, so one has only to press Ctrl+C
+							if (window.getSelection) {
+								var range = document.createRange();
+								range.selectNode(el);
+								window.getSelection().removeAllRanges();
+								window.getSelection().addRange(range);
+								// Try to copy color value using HTML5 API
+								try {
+									document.execCommand('copy');
+									window.getSelection().removeAllRanges();
+									// If succeeded - show some animation
+									el.parentNode.classList.add('clicked');
+									setTimeout(function() {
+										el.parentNode.classList.remove('clicked');
+									}, 100);
+								} catch(e) {}
+							}
+						});
+					})(tiles[i]);
+				}
+			};
+	body
+		header.flex#top
+			h1.flex.center Palette
+			nav.flex.center.col
+				ul.flex.menu
+					each palette in palettes
+						li.flex
+							a.active(href='##{palette.name}') #{palette.name}
+				ul.flex.center.format
+					li.flex
+						a.active(data-format='hashhex') #hex
+					li.flex
+						a(data-format='oxhex') hex
+					li.flex
+						a(data-format='rgba') rgb
+			nav.about.flex.center.col
+				p.flex
+					a.active(href="http://trikita.co") made by <strong>trikita</strong>
+				p.flex
+					a.active(style="color: #ff5722", href="http://www.google.com/+Trikita")
+						| +trikita
+					| &nbsp;
+					a.active(style="color: #5677fc", href="http://twitter.com/trkta")
+						| @trikita
+				p.flex
+					a.active(href="https://github.com/zserge/palette") github
+		section.palettes
+			each palette in palettes
+				h1(id='#{palette.name}')
+					a(href='#top') #{palette.name}
+				section.palette
+					each color, name in palette.colors
+						- var w = 100/palette.width;
+						- var bg = '#' + color;
+						- var r = parseInt(color.substr(0,2), 16);
+						- var g = parseInt(color.substr(2,2),16);
+						- var b = parseInt(color.substr(4,2),16);
+						- var yiq = ((r*299)+(g*587)+(b*114))/1000;
+						- var fgclass = yiq >= 180 ? 'black-text' : 'white-text';
+						.color(class='#{fgclass}', style='background: #{bg}; width: #{w}%', data-color='#{color}')
+							.name #{name}
+							.rgb #{bg}
+
