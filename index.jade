@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+	head
+		link(href='styles.css', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Oxygen:100,300', rel='stylesheet', type='text/css')
+	body
+		header
+			h1 Palette
+			nav
+				ul
+					each palette in palettes
+						li
+							a(href='##{palette.name}') #{palette.name}
+			nav
+				ul
+					li
+						a(href='#') #hex
+					li
+						a(href='#') hex
+					li
+						a(href='#') rgb
+
+		each palette in palettes
+			section.palette(id='#{palette.name}')
+				each color, name in palette.colors
+					- var w = 100/palette.width;
+					- var bg = '#' + color;
+					- var r = parseInt(color.substr(0,2), 16);
+					- var g = parseInt(color.substr(2,2),16);
+					- var b = parseInt(color.substr(4,2),16);
+					- var yiq = ((r*299)+(g*587)+(b*114))/1000;
+					- var fgclass = yiq >= 180 ? 'black-text' : 'white-text';
+					.color(class='#{fgclass}', style='background: #{bg}; width: #{w}%')
+						.name #{name}
+						.rgb #{bg}

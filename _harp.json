@@ -1,0 +1,139 @@
+{
+	"globals": {
+		"palettes": [
+			{
+				"name": "flat",
+				"width": 5,
+				"colors": {
+					"turquoise": "1abc9c",
+					"emerald": "2ecc71",
+					"peter river": "3498db",
+					"amethyst": "9b59b6",
+					"wet asphalt": "34495e",
+					"green sea": "16a085",
+					"nephritis": "27ae60",
+					"belize hole": "2980b9",
+					"wisteria": "8e44ad",
+					"midnight blue": "2c3e50",
+					"sun flower": "f1c40f",
+					"carrot": "e67e22",
+					"alizarin": "e74c3c",
+					"clouds": "ecf0f1",
+					"concrete": "95a5a6",
+					"orange": "f39c12",
+					"pumpkin": "d35400",
+					"pomegrenade": "c0392b",
+					"silver": "bdc3c7",
+					"asbesthos": "7f8c8d"
+				}
+			},
+			{
+				"name": "material",
+				"width": 6,
+				"colors": {
+					"red": "e51c23",
+					"pink": "e91e63",
+					"purple": "9c27b0",
+					"deep purple": "673ab7",
+					"indigo": "3f51b5",
+					"blue": "5677fc",
+					"light blue": "03a9f4",
+					"cyan": "00bcd4",
+					"teal": "009688",
+					"green": "259b24",
+					"light green": "8bc34a",
+					"lime": "cddc39",
+					"yellow": "ffeb3b",
+					"amber": "ffc107",
+					"orange": "ff9800",
+					"deep orange": "ff5722",
+					"brown": "795548",
+					"grey": "9E9E9E",
+					"blue grey": "607D8B",
+					"black": "000000",
+					"white": "ffffff"
+				}
+			},
+			{
+				"name": "ios",
+				"width": 5,
+				"colors": {
+					"dark blue": "5856d6",
+					"deep blue": "007aff",
+					"blue": "34aadc",
+					"light blue": "5ac8fa",
+					"green": "4cd964",
+
+					"pink": "ff2d55",
+					"red": "ff3b30",
+					"orange": "ff9500",
+					"yellow": "ffcc00",
+					"grey": "8e8e93"
+				}
+			},
+			{
+				"name": "solarized",
+				"width": 4,
+				"colors": {
+					"base03": "002b36",
+					"base02": "073642",
+					"base01": "586e75",
+					"base00": "657b83",
+					"base0": "839496",
+					"base1": "93a1a1",
+					"base2": "eee8d5",
+					"base3": "fdf6e3",
+					"yellow": "b58900",
+					"orange": "cb4b16",
+					"red": "dc322f",
+					"magenta": "d33682",
+					"violet": "6c71c4",
+					"blue": "268bd2",
+					"cyan": "2aa198",
+					"green": "859900"
+				}
+			},
+			{
+				"name": "wp8",
+				"width": 5,
+				"colors": {
+					"lime": "a4c400",
+					"green": "60a917",
+					"emerald": "008a00",
+					"teal": "00aba9",
+					"cyan": "1ba1e2",
+					"cobalt": "0050ef",
+					"indigo": "6a00ff",
+					"violet": "aa00ff",
+					"magenta": "d80073",
+					"pink": "f472d0",
+					"crimson": "a20025",
+					"red": "e51400",
+					"orange": "fa6800",
+					"amber": "f0a30a",
+					"yellow": "e3c800",
+					"brown": "825a2c",
+					"olive": "6d8764",
+					"steel": "647687",
+					"mauve": "76608a",
+					"sienna": "a0522d"
+				}
+			},
+			{
+				"name": "tango",
+				"width": 3,
+				"colors": {
+					"Aluminium" : "d3d7cf",
+					"Butter"	: "edd400",
+					"Chameleon"	: "73d216",
+					"Orange"	: "f57900",
+					"Chocolate"	: "c17d11",
+					"Sky Blue"	: "3465a4",
+					"Plum"	: "75507b",
+					"Slate"	: "555753",
+					"Scarlet Red"	: "cc0000"
+				}
+			}
+		]
+	}
+}
