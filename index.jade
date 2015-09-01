@@ -77,13 +77,14 @@ html(lang="en")
 								window.getSelection().addRange(range);
 								// Try to copy color value using HTML5 API
 								try {
-									document.execCommand('copy');
-									window.getSelection().removeAllRanges();
-									// If succeeded - show some animation
-									el.parentNode.classList.add('clicked');
-									setTimeout(function() {
-										el.parentNode.classList.remove('clicked');
-									}, 100);
+									if (document.execCommand('copy')) {
+										window.getSelection().removeAllRanges();
+										// If succeeded - show some animation
+										el.parentNode.classList.add('clicked');
+										setTimeout(function() {
+											el.parentNode.classList.remove('clicked');
+										}, 100);
+									}
 								} catch(e) {}
 							}
 						});
