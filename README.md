@@ -13,8 +13,8 @@ http://0xrgb.com - a minimal color picker that does not use Adobe Flash.
 
 ## Screenshots
 
-![Flat UI colors](palette1.png "Flat UI colors")
-![Material UI colors](palette2.png "Material colors")
+![Flat UI colors](_palette1.png "Flat UI colors")
+![Material UI colors](_palette2.png "Material colors")
 
 ## Why another one color picker?
 
@@ -51,7 +51,7 @@ color.
 
 ## License
 
-Made by @zserge and @krugloid.
+Made by [@zserge](https://github.com/zserge) and [@krugloid](https://github.com/krugloid)
 Distributed under MIT license.
 Any feedback is welcome!
 
