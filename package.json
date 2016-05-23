@@ -1,0 +1,21 @@
+{
+  "name": "palette",
+  "version": "1.0.0",
+  "description": "Lightweight color picker using HTML5 Clipboard API",
+  "scripts": {
+    "build": "harp compile ./src ./dist",
+    "publish": "git subtree push --prefix dist origin gh-pages",
+    "serve": "harp server ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trikita/palette.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trikita/palette/issues"
+  },
+  "devDependencies": {
+    "harp": "^0.20.3"
+  }
+}
