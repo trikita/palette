@@ -4,7 +4,7 @@
   "description": "Lightweight color picker using HTML5 Clipboard API",
   "scripts": {
     "build": "harp compile ./src ./dist",
-    "publish": "git subtree push --prefix dist origin gh-pages",
+    "publish": "git subtree push --prefix dist git@github.com:trikita/palette.git gh-pages",
     "serve": "harp server ./src"
   },
   "repository": {
