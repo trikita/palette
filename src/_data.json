@@ -1,5 +1,8 @@
 {
 	"index": {
+		"service": {
+			"analytics": "UA-33644825-2"
+		},
 		"palettes": [
 			{
 				"name": "flat",
