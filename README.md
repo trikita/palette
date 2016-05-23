@@ -51,7 +51,7 @@ color.
 
 ## License
 
-Made by @zserge and @krugloid.
+Made by [@zserge](https://github.com/zserge) and [@krugloid](https://github.com/krugloid)
 Distributed under MIT license.
 Any feedback is welcome!
 
